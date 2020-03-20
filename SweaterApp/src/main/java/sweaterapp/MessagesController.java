@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import sweaterapp.entities.Message;
 import sweaterapp.repos.MessagesRepo;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -30,6 +31,21 @@ public class MessagesController {
 
         //return messages list to user
         Iterable<Message> messages = messagesRepo.findAll();
+        model.put("messages", messages);
+
+        return "main";
+    }
+
+    @PostMapping("filter")
+    String filter (@RequestParam String filter,
+                                Map<String, Object> model){
+        Iterable<Message> messages;
+        if(filter != null && !filter.isEmpty()){
+            messages = messagesRepo.findByTag(filter);
+        } else {
+            messages = messagesRepo.findAll();
+        }
+
         model.put("messages", messages);
 
         return "main";
