@@ -17,6 +17,11 @@ public class MessagesController {
     private MessagesRepo messagesRepo;
 
     @GetMapping
+    public String root (Map<String, Object> model){
+        return "home";
+    }
+
+    @GetMapping("/main")
     public String main (Map<String, Object> model){
         Iterable<Message> messages = messagesRepo.findAll();
         model.put("messages", messages);
