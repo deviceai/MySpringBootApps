@@ -2,16 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title>Login page</title>
+    <title>Registration form</title>
 </head>
 <body>
-<h3>Login page</h3>
-<form action="/login" method="post">
+
+</div>
+<h3>Add new user</h3>
+{{#message}}
+    {{message}}
+{{/message}}
+<form action="/registration" method="post">
     <div><label> User Name : <input type="text" name="username"/> </label></div>
     <div><label> Password: <input type="password" name="password"/> </label></div>
     <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-    <div><input type="submit" value="Sign In"/></div>
+    <div><input type="submit" value="Register"/></div>
 </form>
-<a href="registration">Register new user</a>
 </body>
 </html>

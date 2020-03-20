@@ -1,4 +1,4 @@
-package sweaterapp;
+package sweaterapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class MessagesController {
+public class MainController {
     @Autowired
     private MessagesRepo messagesRepo;
 
