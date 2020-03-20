@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Main Page</title>
 </head>
 <body>
-<div>This is : {{name}}</div>
+<div><h2>Sweater App</h2></div>
+<p></p>
+<div>
+    <form method="post">
+          <input type="text" name="text" placeholder="Enter your message:" />
+            <input type="text" name="tag" placeholder="Tag" />
+                <button type="submit">Add</button>
+    </form>
+</div>
+<p></p>
+<div>Messages list: </div>
+{{#messages}}
+
+    <div>
+        <b>{{id}}</b>
+        <span>{{text}}</span>
+        <i>{{tag}}</i>
+    </div>
+
+{{/messages}}
 </body>
 </html>
